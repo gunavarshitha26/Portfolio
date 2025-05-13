@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guna Varshitha's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F5F5F5;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .navbar.scrolled {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #F472B6;
+            transform: scaleX(1);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #F472B6;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(145deg, #f9fafb, #e5e7eb);
+            border-radius: 1rem;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #F472B6;
+            color: #FFFFFF;
+        }
+        .home-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.7), rgba(45, 212, 191, 0.7));
+            z-index: -1;
+        }
+        /* Fix text overlap and adjust layout in home section */
+        .home-section .container {
+            padding: 2rem;
+        }
+        .home-section h1 {
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .home-section p {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        /* Enhance section title and card spacing */
+        .section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1F2937;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .extracurricular-section {
+            background: linear-gradient(180deg, #FFFFFF, #F3E8FF);
+        }
+        @media (max-width: 768px) {
+            .home-section h1 {
+                font-size: 2.5rem;
+            }
+            .home-section p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+            .home-section .btn {
+                padding: 0.75rem 1.5rem;
+            }
+            .section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+    <!-- Navigation Bar -->
+    <nav class="navbar fixed top-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold text-indigo-800">Guna Varshitha</a>
+            <div class="space-x-8">
+                <a href="#home" class="nav-link text-gray-800 hover:text-pink-500 font-medium">Home</a>
+                <a href="#projects" class="nav-link text-gray-800 hover:text-pink-500 font-medium">Projects</a>
+                <a href="#hackathons" class="nav-link text-gray-800 hover:text-pink-500 font-medium">Hackathons</a>
+                <a href="#skills" class="nav-link text-gray-800 hover:text-pink-500 font-medium">Skills</a>
+                <a href="#education" class="nav-link text-gray-800 hover:text-pink-500 font-medium">Education</a>
+                <a href="#extracurricular" class="nav-link text-gray-800 hover:text-pink-500 font-medium">Extracurricular</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section home-section relative bg-indigo-900 text-white">
+        <div class="container mx-auto flex items-center justify-center z-10">
+            <!-- Centered Text Details -->
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Guna Varshitha Macharla</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light max-w-3xl mx-auto">Driven Computer Science student specializing in AI/ML, eager to excel as a Software Development Engineer by crafting scalable, innovative solutions to solve complex real-world problems.</p>
+                <div class="mt-8">
+                    <a href="#contact" class="btn inline-block bg-teal-400 text-gray-900 px-8 py-3 rounded-full font-semibold">Connect with Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Machine Learning Visualizer</h3>
+                    <p class="text-gray-600 mb-4">Feb 2025</p>
+                    <p class="text-gray-700 mb-4">Developed an interactive web tool using React and Node.js to visualize real-time ML model performance metrics through dynamic charts, aiding in model behavior analysis.</p>
+                    <p class="text-gray-600"><strong>Tools:</strong> React, Node.js, CSS, Git, Machine Learning</p>
+                </div>
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Rep Counter</h3>
+                    <p class="text-gray-600 mb-4">June 2024 - July 2024</p>
+                    <p class="text-gray-700 mb-4">Built a real-time pose detection system using OpenCV and MediaPipe, integrated with motion capture and electromyography for posture correction and exercise optimization.</p>
+                    <p class="text-gray-600"><strong>Tools:</strong> OpenCV, MediaPipe, NumPy, Electromyography, Motion Capture Systems</p>
+                </div>
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Campus Compass</h3>
+                    <p class="text-gray-600 mb-4">Mar 2024</p>
+                    <p class="text-gray-700 mb-4">Designed a web platform with interactive campus maps and academic resource management using HTML, CSS, and JavaScript to enhance navigation and resource access.</p>
+                    <p class="text-gray-600"><strong>Tools:</strong> HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hackathons Section -->
+    <section id="hackathons" class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Hackathons</h2>
+            <div class="space-y-8">
+                <div class="card bg-white p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Top 6 in AI Autonomous Hackathon</h3>
+                    <p class="text-gray-600 mb-2">Feb 2025, Siddhartha Academy of Higher Education, Vijayawada, India</p>
+                    <p class="text-gray-700">Developed unique solutions in 36 hours, showcasing strong problem-solving and presentation skills.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Encode - National Level Event</h3>
+                    <p class="text-gray-600 mb-2">April 2025, MallaReddy (MR Deemed to be university), Hyderabad, India</p>
+                    <p class="text-gray-700">Developed innovative solutions in the field of finance in a 24-hour hackathon, showcasing rapid prototyping, problem-solving, and persuasive presentation skills to judges.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Web Wars</h3>
+                    <p class="text-gray-600 mb-2">Feb 2024, CMR College of Engineering and Technology, Hyderabad, India</p>
+                    <p class="text-gray-700">Built a website for managing college activities such as student council, clubs, and events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-800">Programming Languages</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>C/C++</li>
+                        <li>Basics of Java</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-800">Developer Tools</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>VS Code</li>
+                        <li>Eclipse</li>
+                        <li>Code Blocks</li>
+                    </ul>
+                </div>
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-800">Soft Skills</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Adaptability</li>
+                        <li>Communication Skills</li>
+                        <li>Time Management</li>
+                        <li>Problem-Solving</li>
+                    </ul>
+                </div>
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-800">Coursework</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Software Engineering</li>
+                        <li>Database Management System</li>
+                        <li>Operating Systems</li>
+                        <li>Design Analysis of Algorithms</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Data Mining</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Education</h2>
+            <div class="space-y-8">
+                <div class="card bg-white p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">BTech Computer Science Engineering with AI and ML</h3>
+                    <p class="text-gray-600 mb-2">CMR College of Engineering and Technology, Hyderabad, India</p>
+                    <p class="text-gray-600 mb-2">July 2022 - July 2026</p>
+                    <p class="text-gray-700">CGPA: 8.8 / 10.00</p>
+                </div>
+                <div class="card bg-white p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Secondary Education in MPC</h3>
+                    <p class="text-gray-600 mb-2">Sri Chaitanya Junior College, Hyderabad, India</p>
+                    <p class="text-gray-600 mb-2">July 2022</p>
+                    <p class="text-gray-700">Percentage: 92.2%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurricular Section -->
+    <section id="extracurricular" class="section extracurricular-section">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">Extracurricular</h2>
+            <div class="space-y-12">
+                <div class="card bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">StreetCause</h3>
+                    <p class="text-gray-600 mb-2">Executive Board Member, Hyderabad, India</p>
+                    <p class="text-gray-600 mb-2">Sep 2023 - April 2025</p>
+                    <p class="text-gray-700">Developed key communication strategies and honed soft skills, enhancing outreach and engagement across multiple initiatives.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-800">Sports - Throwball Team Captain</h3>
+                    <p class="text-gray-600 mb-2">CMR College of Engineering and Technology, Hyderabad, India</p>
+                    <p class="text-gray-600 mb-2">2023 - 2025</p>
+                    <p class="text-gray-700 mb-4">Led the college throwball team, fostering team spirit and coordinating strategies to enhance performance in inter-college competitions, gaining leadership qualities and discipline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gray-100 text-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12">Connect with Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <a href="tel:+919398698310" class="btn inline-block bg-teal-400 text-gray-900 px-6 py-3 rounded-full font-semibold">
+                    <i class="fa-solid fa-phone mr-2"></i>+91 9398698310
+                </a>
+                <a href="mailto:gunavarshithamacharla@gmail.com" class="btn inline-block bg-teal-400 text-gray-900 px-6 py-3 rounded-full font-semibold">
+                    <i class="fa-solid fa-envelope mr-2"></i>gunavarshithamacharla@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/guna-varshitha-macharla" target="_blank" class="btn inline-block bg-teal-400 text-gray-900 px-6 py-3 rounded-full font-semibold">
+                    <i class="fa-brands fa-linkedin mr-2"></i>LinkedIn
+                </a>
+                <a href="https://github.com/gunavarshitha26" target="_blank" class="btn inline-block bg-teal-400 text-gray-900 px-6 py-3 rounded-full font-semibold">
+                    <i class="fa-brands fa-github mr-2"></i>GitHub
+                </a>
+                <a href="https://leetcode.com/u/gunavarshitha26" target="_blank" class="btn inline-block bg-teal-400 text-gray-900 px-6 py-3 rounded-full font-semibold">
+                    <i class="fa-solid fa-code mr-2"></i>LeetCode
+                </a>
+            </div>
+            <p class="mt-8 text-lg">© 2025 Guna Varshitha Macharla. All rights reserved.</p>
+        </div>
+    </section>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in effect for sections
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
