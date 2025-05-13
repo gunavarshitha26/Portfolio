@@ -56,10 +56,4 @@ LinkedIn | GitHub | Portfolio
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-yaml
-Copy
-Edit
 
----
-
-Let me know if you want this customized with your actual name, LinkedIn, or GitHub profile links.
