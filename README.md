@@ -31,9 +31,6 @@ To run this project locally:
    git clone https://github.com/your-username/your-repo-name.git
 Open the index.html file in your preferred web browser.
 
-📸 Screenshots
-(Add screenshots here if available to showcase your homepage and design.)
-
 ✨ Future Enhancements
 Add dedicated pages for:
 
@@ -50,8 +47,7 @@ Implement theme switching (dark/light mode)
 Enhance mobile responsiveness with more CSS breakpoints
 
 🙋‍♂️ Author
-Your Name
-LinkedIn | GitHub | Portfolio
+Guna Varshitha Macharla
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
